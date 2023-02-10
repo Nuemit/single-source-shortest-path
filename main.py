@@ -17,7 +17,7 @@ class single_source_shortest_path:
 
     def gen_content_table(self, nodes: int):
         """generates tables with content for n nodes"""
-        for n in nodes:
+        for n in range(nodes):
             self.nodenames.append(f"Node-{n}")
 
 

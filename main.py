@@ -10,6 +10,25 @@ class Djikstra:
         self.distance = []
         self.predecessor = []
 
+    def get_sample_dict(self):
+        return {
+            '0': {'1': 4, '4': 8},
+            '1': {'0': 4, '2': 8, '4': 11},
+            '2': {'1': 8, '3': 7, '6': 4, '8': 2},
+            '3': {'2': 7, '6': 14, '7': 9},
+            '4': {'0': 8, '1': 11, '5': 1, '8': 7},
+            '5': {'4': 1, '6': 2, '8': 6},
+            '6': {'3': 1, '5': 2, '7': 10},
+            '7': {'3': 9, '6': 10},
+            '8': {'2': 2, '4': 7, '5': 6}
+        }
+
+    def set_graph(self, graph: dict):
+        self.graph = graph
+        self.visited = [False] * len(graph)
+        self.distance = [float("inf")] * len(graph)
+        self.predecessor = [None] * len(graph)
+
     def get_graph(self):
         return self.graph
 
@@ -48,22 +67,3 @@ class Djikstra:
         path = path[::-1]
 
         return path
-
-    def set_graph(self, graph: dict):
-        self.graph = graph
-        self.visited = [False] * len(graph)
-        self.distance = [float("inf")] * len(graph)
-        self.predecessor = [None] * len(graph)
-
-    def get_sample_dict(self):
-        return {
-            '0': {'1': 4, '4': 8},
-            '1': {'0': 4, '2': 8, '4': 11},
-            '2': {'1': 8, '3': 7, '6': 4, '8': 2},
-            '3': {'2': 7, '6': 14, '7': 9},
-            '4': {'0': 8, '1': 11, '5': 1, '8': 7},
-            '5': {'4': 1, '6': 2, '8': 6},
-            '6': {'3': 1, '5': 2, '7': 10},
-            '7': {'3': 9, '6': 10},
-            '8': {'2': 2, '4': 7, '5': 6}
-        }

@@ -40,3 +40,6 @@ Djk = Djikstra(1, 4, 5)
 Djk.set_graph(my_nodes)
 Djk.get_shortest_path()
 ```
+
+Output:
+> [1, 0, 2, 4, 5]
